@@ -44,7 +44,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 
 Copy and paste these commands into the terminal one by one and execute them (hit the return key)
 ```bash
-uv init --python 3.12
+uv init --python 3.13
 ```
 
 ```bash
