@@ -1,71 +1,112 @@
 # Python Environment Installation
 
-Please follow these steps to install the necessary software for Python (for the Data Science and the Tutorial courses)
+Please follow these steps to install the software for Python for the Data Science and Tutorial courses.
 
-## Step 1. Download and install VS Code on your computer
+## Step 1. Create a GitHub account
 
-https://code.visualstudio.com/download 
+Skip this step if you already have a GitHub account.
 
-## Step 2. Start VS Code
+https://github.com/signup
 
-## Step 3. Configure VS Code
+## Step 2. Apply for GitHub Education benefits
 
-### Open the Extension tab on the left. In the Menu: View | Extensions (Shortcut ⇧⌘X)
-   
-### Search for and install the following extensions
+https://github.com/settings/education/benefits
+
+Approval can take a few days, so apply now and continue with the next steps in the meantime. Once you are approved, you can activate GitHub Copilot for free (Step 10).
+
+## Step 3. Download and install VS Code
+
+https://code.visualstudio.com/download
+
+## Step 4. Start VS Code and install the extensions
+
+Open the Extensions tab on the left (menu: **View | Extensions**, shortcut ⇧⌘X on Mac, Ctrl+Shift+X on Windows).
+
+Search for and install these extensions:
 
 - Python
 - Jupyter
-- Github Copilot Chat
+- GitHub Copilot Chat (you will sign in to Copilot in Step 10)
 
-You can get GitHub Copilot for free through an education application (later in Step 8). However, if you have a ChatGPT Plus or an Anthropic Claude Code Pro account, you can also (alternatively) use them (optional):
-#### If you have a ChatGPT Plus account, install the extension
-- Codex - OpenAI's coding agent
+Optional: instead of GitHub Copilot, you can use a coding assistant you already pay for:
 
-#### If you have an Anthropic Claude Code Pro account, install the extension
-- Claude Code for VS Code
+- If you have a ChatGPT Plus (or higher) plan, install **Codex – OpenAI's coding agent**.
+- If you have a Claude Pro or Max subscription, install **Claude Code for VS Code**.
 
-## Step 4. Create and open a new project folder in VS Code
-- in Menu: Open | Open Folder..,
-- Navigate to where you want to create a new folder 
-- Click the New Folder button and name it, e.g. bipm
-- Click Open
+## Step 5. Create and open a project folder
 
-##  Step 5: Open Terminal and install uv
+- In the menu: **File | Open Folder…**
+- Navigate to where you want to create the folder
+- Click **New Folder** and give it a name, e.g. `bipm`
+- Click **Open**
 
-- in Menu: Terminal | New Terminal
-- If you are on a Mac: Copy and paste this command into the terminal and execute it (hit return key) (If you are on Windows, go to https://docs.astral.sh/uv/getting-started/installation for installation instructions of uv):
+## Step 6. Open a terminal and install uv
+
+In the menu: **Terminal | New Terminal**. Copy the command for your system into the terminal and press Return.
+
+On a Mac:
 
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-## Step 6: Install Python and Python packages with uv
+On Windows:
 
-Copy and paste these commands into the terminal one by one and execute them (hit the return key)
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+**Important:** close the terminal (trash icon in the terminal panel) and open a new one (**Terminal | New Terminal**). Only new terminals know the `uv` command. Check that it works:
+
+```bash
+uv --version
+```
+
+## Step 7. Install Python and the Python packages
+
+Run these commands one by one in the terminal (inside your project folder).
+
 ```bash
 uv init --python 3.13
 ```
+
+This creates the project files (`pyproject.toml`, `.python-version`, `main.py`). Keep Python 3.13: TensorFlow does not support Python 3.14 yet.
 
 ```bash
 uv add jupyter matplotlib seaborn pandas scipy pingouin statsmodels openpyxl statannotations scikit-learn xgboost shap numpy tensorflow lime treeinterpreter dtreeviz rfpimp
 ```
 
+This downloads about 1 GB (mostly TensorFlow) and can take a few minutes. It creates a `.venv` folder that contains Python and all packages.
+
+If VS Code asks whether to select the new environment for the workspace folder, click **Yes**.
+
+Later, for example on a new computer or after cloning a project, `uv sync` reinstalls everything listed in `pyproject.toml`.
+
+## Step 8. Check the installation
+
 ```bash
-uv sync
+uv run python -c "import pandas, sklearn, tensorflow, shap; print('All good')"
 ```
 
-## Step 7: Register at Github.com (skip if you already have a Github account)
+You should see `All good` (TensorFlow may print a few informational messages first).
 
-https://github.com/signup
+## Step 9. Use the environment in a Jupyter notebook
 
-## Step 8: Apply for Education Benefits at Github
+- In the menu: **File | New File…** and choose **Jupyter Notebook**
+- Click **Select Kernel** (top right) → **Python Environments…** → **.venv**
+- In the first cell, type the code below and run it (Shift+Return):
 
-https://github.com/settings/education/benefits 
+```python
+import pandas as pd
+pd.__version__
+```
 
-This may take a couple of days for approval. After you get the approval, go to Step 9. 
+If a version number appears, everything works. In every new notebook, check that **.venv** is selected as the kernel (top right).
 
-## Step 9: Activate Github Copilot
+## Step 10. Activate GitHub Copilot
+
+After your education benefits are approved (Step 2):
 
 https://github.com/settings/copilot/features
 
+Then sign in to GitHub in VS Code: click the **Accounts** icon (bottom left) and choose **Sign in with GitHub to use GitHub Copilot**.
