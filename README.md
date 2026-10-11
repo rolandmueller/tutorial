@@ -48,7 +48,8 @@ uv init --python 3.13
 ```
 
 ```bash
-uv add jupyter matplotlib seaborn pandas scipy pingouin statsmodels openpyxl statannotations scikit-learn xgboost shap numpy tensorflow lime treeinterpreter dtreeviz rfpimp```
+uv add jupyter matplotlib seaborn pandas scipy pingouin statsmodels openpyxl statannotations scikit-learn xgboost shap numpy tensorflow lime treeinterpreter dtreeviz rfpimp
+```
 
 ```bash
 uv sync
