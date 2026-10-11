@@ -1,6 +1,6 @@
-# Tutorial Install
+# Python Environment Installation
 
-Please follow these steps to install the necessary software for the tutorial
+Please follow these steps to install the necessary software for Python (for Data Science and the tutorial)
 
 ## Step 1. Download and install VS Code on your computer
 
@@ -28,7 +28,7 @@ You can get GitHub Copilot for free through an education application (later in S
 ## Step 4. Create and open a new project folder in VS Code
 - in Menu: Open | Open Folder..,
 - Navigate to where you want to create a new folder 
-- Click the New Folder button and name it, e.g. tutorial
+- Click the New Folder button and name it, e.g. bipm
 - Click Open
 
 ##  Step 5: Open Terminal and install uv
@@ -48,8 +48,7 @@ uv init --python 3.13
 ```
 
 ```bash
-uv add jupyter matplotlib seaborn pandas scipy pingouin statsmodels openpyxl statannotations scikit-learn xgboost shap
-```
+uv add jupyter matplotlib seaborn pandas scipy pingouin statsmodels openpyxl statannotations scikit-learn xgboost shap numpy tensorflow lime treeinterpreter dtreeviz rfpimp```
 
 ```bash
 uv sync
