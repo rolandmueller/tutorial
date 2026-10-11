@@ -1,6 +1,6 @@
 # Python Environment Installation
 
-Please follow these steps to install the necessary software for Python (for Data Science and the tutorial)
+Please follow these steps to install the necessary software for Python (for the Data Science and the Tutorial courses)
 
 ## Step 1. Download and install VS Code on your computer
 
